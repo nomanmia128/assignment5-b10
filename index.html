@@ -13,40 +13,47 @@
         .lexend {
          font-family: "Lexend", system-ui;
          }
+
+         .active{
+           background-color: rgb(10, 192, 10);
+           color: white;
+         }
     </style>    
 </head>
 <body>
-    <main>
-        <header>
-           <nav class="bg-[#f7f7ef] lg:px-24 lg:p-4 p-1">
-             <div class="navbar">
-                <div class="navbar-start">
-                  <button class="lg:text-2xl py-3 px-5 rounded-xl font-bold bg-[#B4F461]"><a href="blog.html">Blog</a></button>
+    <main class="container mx-auto">
+        <header class="sticky top-0 ">
+           <nav class="lg:px-24 lg:p-4 p-1 bg-orange-100">
+             <div class="flex justify-between items-center">
+                <div>
+                  <a href="blog.html"><button class="lg:text-2xl p-4 rounded-xl font-bold active text-white">Blog</button></a>
                 </div>
-                <div class="navbar-center lg:flex gap-3">
-                 <img class="lg:w-10 w-8" src="assets/logo (1).png">
-                 <h3 class="lg:text-2xl font-bold">Donate Bangladesh</h3>
+                
+                <div class="lg:flex items-center gap-3">
+                  <img class="lg:w-10 lg:block hidden w-8" src="assets/logo (1).png">
+                  <h3 class="lg:text-2xl font-bold">Donate Bangladesh</h3>
                 </div>
-                <div class="navbar-end">
+                
+                <div>
                   <button class ="flex gap-2 items-center">
-                    <img class="w-10" src="assets/coin.png">
-                    <span id="main-amount" class="lg:text-2xl font-bold text-inherit">5500</span> <span class="lg:text-2xl font-bold text-inherit">BDT</span>
+                    <img class="lg:w-10" src="assets/coin.png">
+                    <span id="account-balance" class="lg:text-2xl font-bold text-inherit">5500</span> <span class="lg:text-2xl font-bold text-inherit">BDT</span>
                   </button>
                 </div>
             </div>
            </nav>
-         <!-- fecert start -->
-           <div class="flex justify-center gap-5 pt-10 pb-6">
-            <button onclick="getBtnClicked(this)" id="donate-form-btn" class="text-2xl font-bold border-solid border-2 border-black-600 px-4 py-3 rounded-xl hover:bg-[#B4F461]">Donation</button>
-            <button onclick="getBtnClicked(this)" id="history-form-btn" class="text-2xl font-bold border-solid border-2 border-black-600 px-4 py-3 rounded-xl hover:bg-[#B4F461]">History</button>
-           </div>
-           <!-- fecert ent -->
-           
+            <!-- Donate and History Button start -->
+              <div class="flex justify-center gap-5 pt-3 pb-3 backdrop-blur bg-white/30">
+               <button id="donate-form-btn" class="text-2xl font-bold border-solid border-2 border-black-600 px-4 py-3 rounded-xl">Donation</button>
+               <button id="history-form-btn" class="text-2xl font-bold border-solid border-2 border-black-600 px-4 py-3 rounded-xl">History</button>
+              </div>
+              <!-- Donate and History Button end -->
         </header>
+        <hr>
          <main>
             <section id="donate-from" class="">
-                 <!-- section-1 -->
-            <section class="lg:flex gap-14 justify-center lg:mx-28 border rounded-xl lg:p-4 p-3 mb-4 h-auto">
+            <!-- Card-1 -->
+             <div class="lg:flex gap-14 justify-center lg:mx-28 border rounded-xl lg:p-4  p-3 mb-4 mt-4 h-auto shadow-2xl bg-white"> 
                 <!-- images container -->
               <div class="lg:w-6/12">
                 <img class="h-full" src="assets/noakhali.png" alt="">
@@ -54,20 +61,20 @@
               <!-- text container -->
                <div class="lg:w-6/12 pt-3">
                  <div>
-                    <button class="flex gap-2 items-center bg-[#1111110D] py-2 px-3 rounded-lg">
+                    <div class="flex gap-2 items-center w-36 bg-[#1111110D] py-2 px-3 rounded-lg">
                         <img src="assets/coin.png" alt="">
-                        <span id="section-total-amount" class="text-4 font-bold">0</span><span class="text-4 font-bold">BDT</span>
-                    </button>
+                        <span id="current-amount" class="text-4 font-bold">0</span><span class="text-4 font-bold">BDT</span>
+                    </div>
                     <h3 class="lg:text-2xl font-bold pt-5">Donate for Flood at Noakhali, Bangladesh</h3>
                     <p class="pt-5 pb-5 text-[#111111B3] text-justify"> The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.</p>
-                    <input id="input-doneat" class="w-full border-solid border-2 py-2 rounded-lg px-2 mb-5" type="text" placeholder="Write Donation Amount"><br>
-                    <button onclick="getBtnClicked(this)" id="btn-donate" class="w-full bg-[#B4F461] rounded-lg py-2 text-4 font-bold">Donate Now</button>
+                    <input id="input-doneat" class="w-full border-solid border-2 py-2 rounded-lg px-2 mb-5" type="text" placeholder="Write Donation Amount" ><br>
+                    <button id="btn-donate" class="w-full active rounded-lg py-2 text-4 font-bold">Donate Now</button>
                  </div>
                </div>
-            </section>
+             </div>
                
-            <!-- section-2 -->
-            <section class="lg:flex gap-14 justify-center lg:mx-28 border rounded-xl lg:p-4 p-3 mb-4 h-auto">
+            <!-- Card-2 -->
+              <div class="lg:flex gap-14 justify-center lg:mx-28 border rounded-xl lg:p-4 p-3 mb-4 h-auto shadow-2xl">
                 <!-- images container -->
               <div class="lg:w-6/12">
                 <img class="h-full" src="assets/feni.png" alt="">
@@ -75,19 +82,20 @@
               <!-- text container -->
                <div class="lg:w-6/12 pt-3">
                  <div>
-                    <button class="flex gap-2 items-center bg-[#1111110D] py-2 px-3 rounded-lg">
+                    <div class="flex gap-2 items-center w-36 bg-[#1111110D] py-2 px-3 rounded-lg">
                         <img src="assets/coin.png" alt="">
-                        <span id="section-total-amount2" class="text-4 font-bold">0</span><span class="text-4 font-bold">BDT</span>
-                    </button>
+                        <span id="current-amount2" class="text-4 font-bold">0</span><span class="text-4 font-bold">BDT</span>
+                    </div>
                     <h3 class="lg:text-2xl font-bold pt-5">Donate for Flood Relief in Feni,Bangladesh</h3>
                     <p class="pt-5 pb-5 text-[#111111B3] text-justify"> The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.</p>
                     <input id="input-doneat2" class="w-full border-solid border-2 py-2 rounded-lg px-2 mb-5" type="text" placeholder="Write Donation Amount"><br>
-                    <button id="btn-donate2" class="w-full bg-[#B4F461] rounded-lg py-2 text-4 font-bold">Donate Now</button>
+                    <button id="btn-donate2" class="w-full active rounded-lg py-2 text-4 font-bold">Donate Now</button>
                  </div>
                </div>
-            </section>
-            <!-- section-3 -->
-            <section class="lg:flex gap-14 justify-center lg:mx-28 border rounded-xl lg:p-4 p-3 mb-4 h-auto">
+              </div>
+
+            <!-- card-3 -->
+              <div class="lg:flex gap-14 justify-center lg:mx-28 border rounded-xl lg:p-4 p-3 mb-4 h-auto shadow-xl">
                 <!-- images container -->
               <div class="lg:w-6/12">
                 <img class="h-full" src="assets/quota-protest.png" alt="">
@@ -95,37 +103,51 @@
               <!-- text container -->
                <div class="lg:w-6/12 pt-3">
                  <div>
-                    <button class="flex gap-2 items-center bg-[#1111110D] py-2 px-3 rounded-lg">
+                    <div class="flex gap-2 items-center w-36 bg-[#1111110D] py-2 px-3 rounded-lg">
                         <img src="assets/coin.png" alt="">
-                        <span id="section-total-amount3" class="text-4 font-bold">0</span><span class="text-4 font-bold">BDT</span>
-                    </button>
+                        <span id="current-amount3" class="text-4 font-bold">0</span><span class="text-4 font-bold">BDT</span>
+                    </div>
                     <h3 class="lg:text-2xl font-bold pt-5">Aid for Injured in the Quota Movement</h3>
                     <p class="pt-5 pb-5 text-[#111111B3] text-justify"> The recent floods in Noakhali have caused significant damage to homes  infrastructure. Your donation will help provide essential supplies and  to those affected by this disaster. Every contribution, big or small, makes  difference. Please join us in supporting the relief efforts and making a positive impact on the lives of those in need.</p>
                     <input id="input-doneat3" class="w-full border-solid border-2 py-2 rounded-lg px-2 mb-5" type="text" placeholder="Write Donation Amount"><br>
-                    <button id="btn-donate3" class="w-full bg-[#B4F461] rounded-lg py-2 text-4 font-bold">Donate Now</button>
+                    <button id="btn-donate3" class="w-full active rounded-lg py-2 text-4 font-bold">Donate Now</button>
                  </div>
                </div>
-            </section>
+              </div>
            </section>
+
+            <!-- modal start -->
+                     <dialog id="my_modal_1" class="modal">
+                      <div class="modal-box text-center">
+                        <h3 class="text-4xl font-bold py-2">Congrates!</h3>
+                         <img class="w-10 py-2 mx-auto" src="assets/coin.png">
+                          <p class="py-2">You Have Donated For HumanKind</p>
+                           <h4 class="text-2xl font-bold py-2">Successfully</h3>
+                            <div class="modal-action justify-center">
+                              <form method="dialog">
+                                <button class="p-3 bg-orange-300 rounded-lg text-xl font-bold ">Close Confirmation</button>
+                              </form>
+                            </div>
+                      </div>
+                    </dialog>
+                  <!-- modal end -->
               
            <!-- history start -->
-            
+
                 <div id="history-from" class="hidden lg:mx-28 mx-3">
                     <div id ="history-contain">
 
                     </div>
                 </div>
           
-            <!-- history ent -->
-              
+            <!-- history end -->
             </section>
          </main>
 
     </main>
 
-    <!-- <script src="js/donate.js"></script>  -->
-    <!-- <script src="js/dddddd.js"></script>  -->
-    <script src="js/uitility.js"></script>
-    <!-- <script src="js/new.js"></script> -->
+   
+    <script src="js/donate.js"></script>
+
 </body>
 </html>
