@@ -17,7 +17,7 @@ function showScertionById(id){
     document.getElementById(id).classList.remove('hidden');
 }
 
-// section-1 start
+// card-1 start
 document.getElementById('btn-donate')
 .addEventListener('click', function(event){
    event.preventDefault();
